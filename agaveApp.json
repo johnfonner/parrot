@@ -10,42 +10,13 @@
   "archiveSystem": "data.iplantcollaborative.org",
   "archivePath": "jfonner/analyses/parrot",
   "inputs": {
-    "dockerFile": [ 
-      "http://lorempixel.com/640/480/sports/?key=IVxr00KfsLXJ",
-      "agave://data.iplantcollaborative.org/jfonner/inputs/bDO5H0bccVky.dat",
-      "http://lorempixel.com/640/480/sports/?key=TT/ryrYe6hxH",
-      "agave://data.iplantcollaborative.org/jfonner/inputs/zLrTVWbd/qS3.dat",
-      "http://lorempixel.com/640/480/sports/?key=kJSz80ZlhhbY"
-    ],
-    "appBundle": [ 
-      "agave://data.iplantcollaborative.org/jfonner/inputs/yw4T9QIz1Xme.dat",
-      "agave://data.iplantcollaborative.org/jfonner/inputs/zsu5LiNz6bst.dat",
-      "agave://data.iplantcollaborative.org/jfonner/inputs/srBG31Q4V52t.dat",
-      "http://lorempixel.com/640/480/sports/?key=le8YYCSckyfI",
-      "http://lorempixel.com/640/480/sports/?key=kR0Ex9WkGuFB"
-    ]
+    "dockerFile": [],
+    "appBundle": []
   },
   "parameters": {
-    "dockerImage": "agaveapi/scipy-matplot-2.7",
-    "command": "python",
-    "unpackInputs": true,
-    "commandArgs": "main.py"
-  },
-  "notifications": [
-    {
-      "url":"http://requestbin.agaveapi.co/184n6f21?job_id=${JOB_ID}&status=${JOB_STATUS}",
-      "event":"*",
-      "persistent":true
-    },
-    {
-      "url":"jfonner@tacc.utexas.edu",
-      "event":"FINISHED",
-      "persistent":false
-    },
-    {
-      "url":"jfonner@tacc.utexas.edu",
-      "event":"FAILED",
-      "persistent":false
-    }
-  ]
+    "dockerImage": "johnfonner/parrot",
+    "command": "bash",
+    "unpackInputs": false,
+    "commandArgs": "parrot.sh -f /tmp/example.txt -r 3"
+  }
 }
